@@ -29,7 +29,9 @@ if ENVIRONMENT == 'local':
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = 'django-insecure-qkzi+34qunh8m_a)mmf0tgr3lk(2g2+kzekvzd#557e6!8he@u'
     
-    ALLOWED_HOSTS = ['localhost:3000']
+    ALLOWED_HOSTS = ['http://localhost:3000', '127.0.0.1']
+    CORS_ALLOWED_ORIGINS = ['http://localhost:3000']
+
 
 
     # SECURITY WARNING: don't run with debug turned on in production!
@@ -50,10 +52,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'scraper'
+    'scraper',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

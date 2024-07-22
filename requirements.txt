@@ -1,0 +1,4 @@
+openai
+django-restframework
+python-dotenv
+requests
